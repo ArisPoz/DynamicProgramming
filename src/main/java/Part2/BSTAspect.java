@@ -43,40 +43,4 @@ public class BSTAspect {
         System.out.println(Thread.currentThread().getName() + " [LookUp Exit]");
         concurrent.exitReader();
     }
-
-    @Before("execution (public static void BST.traverseInOrder(..))")
-    public void beforeTraverseInOrder() throws InterruptedException {
-        System.out.println(Thread.currentThread().getName() + " [Traverse Enter]");
-        concurrent.enterReader();
-    }
-
-    @After("execution (public static void BST.traverseInOrder(..))")
-    public void afterTraverseInOrder() {
-        System.out.println(Thread.currentThread().getName() + " [Traverse Exit]");
-        concurrent.exitReader();
-    }
-
-    @Before("execution (public static void BST.traversePostOrder(..))")
-    public void beforeTraversePostOrder() throws InterruptedException {
-        System.out.println(Thread.currentThread().getName() + " [Traverse Enter]");
-        concurrent.enterReader();
-    }
-
-    @After("execution (public static void BST.traversePostOrder(..))")
-    public void afterTraversePostOrder() {
-        System.out.println(Thread.currentThread().getName() + " [Traverse Exit]");
-        concurrent.exitReader();
-    }
-
-    @Before("execution (public static void BST.traversePreOrder(..))")
-    public void beforeTraversePreOrder() throws InterruptedException {
-        System.out.println(Thread.currentThread().getName() + " [Traverse Enter]");
-        concurrent.enterReader();
-    }
-
-    @After("execution (public static void BST.traversePreOrder(..))")
-    public void afterTraversePreOrder() {
-        System.out.println(Thread.currentThread().getName() + " [Traverse Exit]");
-        concurrent.exitReader();
-    }
 }
