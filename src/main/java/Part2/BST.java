@@ -74,8 +74,4 @@ public class BST {
     private static int findSmallest(Node node) {
         return node.getLeft() == null ? node.getValue() : findSmallest(node.getLeft());
     }
-
-    public static Node getRoot() {
-        return root;
-    }
 }

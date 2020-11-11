@@ -6,18 +6,28 @@
 
     <groupId>uoa.cs1200002</groupId>
     <artifactId>Hw1</artifactId>
+    <packaging>jar</packaging>
     <version>1.0</version>
+
+    <properties>
+        <project.build.java.source>1.8</project.build.java.source>
+        <project.build.java.target>1.8</project.build.java.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <complianceLevel>1.8</complianceLevel>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
-            <version>1.9.6</version>
+            <version>1.8.2</version>
         </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.9.6</version>
+            <version>1.8.2</version>
         </dependency>
     </dependencies>
 
@@ -27,23 +37,28 @@
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>aspectj-maven-plugin</artifactId>
             <version>1.7</version>
-            <configuration>
-                <complianceLevel>1.8</complianceLevel>
-                <source>1.8</source>
-                <target>1.8</target>
-                <showWeaveInfo>true</showWeaveInfo>
-                <verbose>true</verbose>
-                <Xlint>ignore</Xlint>
-                <encoding>UTF-8 </encoding>
-            </configuration>
             <executions>
                 <execution>
                     <goals>
                         <goal>compile</goal>
                         <goal>test-compile</goal>
                     </goals>
+                    <configuration>
+                        <source>${project.build.java.source}</source>
+                        <target>${project.build.java.target}</target>
+                        <complianceLevel>${complianceLevel}</complianceLevel>
+                    </configuration>
                 </execution>
             </executions>
+        </plugin>
+
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.2.1</version>
+            <configuration>
+                <mainClass>Main</mainClass>
+            </configuration>
         </plugin>
     </plugins>
 </build>

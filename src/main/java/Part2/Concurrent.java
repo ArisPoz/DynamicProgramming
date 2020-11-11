@@ -9,6 +9,7 @@ public class Concurrent {
             wait();
         }
         numReaders++;
+        Thread.sleep(2000);
     }
 
     public synchronized void enterWriter() throws InterruptedException {
@@ -16,6 +17,7 @@ public class Concurrent {
             wait();
         }
         isWriter = true;
+        Thread.sleep(2000);
     }
 
     public synchronized void exitReader() {

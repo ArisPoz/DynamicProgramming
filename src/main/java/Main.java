@@ -23,22 +23,24 @@ public class Main {
         proxy.visit(file1);
         proxy.visit(file2);
 
-        System.out.println("\n\nBinary Search Tree with AspectJ for Concurrency addition");
+        System.out.println("\n\nPart2.Binary Search Tree with AspectJ for Concurrency addition");
         System.out.println("-----------------------------------------------------------");
 
         BST.insert(3);
         BST.insert(1);
         BST.insert(2);
         BST.insert(4);
-        BST.remove(4);
 
         new Thread(() -> {
             BST.insert(9);
             BST.lookUp(3);
+            BST.remove(4);
         }).start();
 
         new Thread(() -> {
             BST.insert(3);
+            BST.lookUp(2);
+            BST.lookUp(2);
             BST.lookUp(2);
             BST.remove(1);
         }).start();
